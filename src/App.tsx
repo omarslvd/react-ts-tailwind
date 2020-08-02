@@ -1,10 +1,13 @@
 import React from 'react';
+import cx from 'classnames';
 
 function App() {
   const [toggle, setToggle] = React.useState<boolean>(false);
-  console.log("toggle", toggle);
 
-  const buttonClasses = toggle ? "bg-red-500 hover:bg-red-500" : "bg-blue-500 hover:bg-blue-500";
+  const buttonClasses = cx({
+    "bg-blue-500 hover:bg-blue-500": !toggle,
+    "bg-red-500 hover:bg-red-500": toggle
+  });
 
   return (
     <div className="bg-gray-200 flex items-center justify-center h-screen">
